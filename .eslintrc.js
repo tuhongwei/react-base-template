@@ -16,11 +16,9 @@ module.exports = {
     es6: true,
   },
   extends: [
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    "react-app",
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     "standard",
+    "react-app"
   ],
   plugins: ["prettier"],
   // add your custom rules here
@@ -37,7 +35,6 @@ module.exports = {
     "object-curly-newline": ["error", { multiline: true }],
     // enforce consistent spacing inside braces
     "object-curly-spacing": ["error", "always"],
-    "vue/jsx-uses-vars": 2,
     // allow async-await
     "generator-star-spacing": "off",
     // turn no-callback-literal off
