@@ -4,7 +4,7 @@ import Clock from './components/Clock';
 import './App.css';
 
 class App extends Component {
-  render() {
+  render () {
     return (
       <div className='App'>
         <header className='App-header'>

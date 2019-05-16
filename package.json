@@ -27,18 +27,18 @@
   },
   "lint-staged": {
     "**/*.{js,jsx}": [
-      "eslint --fix",
       "prettier --write",
+      "eslint --fix",
       "git add"
     ],
     "**/*.{ts,tsx}": [
-      "tslint --fix",
       "prettier --write",
+      "tslint --fix",
       "git add"
     ],
     "**/*.{css,less,sass,scss}": [
-      "stylelint --fix",
       "prettier --write",
+      "stylelint --fix",
       "git add"
     ],
     "**/*.{md,json}": [

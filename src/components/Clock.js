@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 
 class Clock extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = { date: new Date() };
   }
-  componentDidMount() {
+  componentDidMount () {
     this.timerID = setInterval(() => {
       this.tick();
     }, 1000);
   }
-  componentWillUnmount() {
+  componentWillUnmount () {
     clearInterval(this.timerID);
   }
-  tick() {
+  tick () {
     this.setState({ date: new Date() });
   }
-  render() {
+  render () {
     return (
       <div>
         <h1>Hello, world!</h1>
