@@ -16,9 +16,9 @@ module.exports = {
     es6: true,
   },
   extends: [
+    "react-app",
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-    "standard",
-    "react-app"
+    "standard"
   ],
   plugins: ["prettier"],
   // add your custom rules here
