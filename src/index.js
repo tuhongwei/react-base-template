@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import './global';
-import './interception';
+// import './interception';
 import './errorCapture';
 import * as serviceWorker from './serviceWorker';
 

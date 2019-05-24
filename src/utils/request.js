@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { baseURL, loginURL } from '@/config';
 import { getCookie, delCookie } from './cookie';
-import { Message } from 'element-ui';
+import { message } from 'antd';
 
 const instance = axios.create({
   baseURL,
@@ -19,7 +19,7 @@ instance.interceptors.request.use(
     return config;
   },
   err => {
-    Message.error(err.request.response.data.msg);
+    message.error(err.request.response.data.msg);
     return Promise.reject(err.request);
   }
 );
@@ -32,7 +32,7 @@ instance.interceptors.response.use(
       delCookie('userInfo');
       window.location.href = loginURL;
     } else if (res.data.code !== 1) {
-      Message.error(res.data.msg);
+      message.error(res.data.msg);
       return Promise.reject(res);
     }
     return res.data;
@@ -42,7 +42,7 @@ instance.interceptors.response.use(
     if (err.response.data.code === 401) {
       delCookie('token');
       delCookie('userInfo');
-      // Message.error(error.response.data.msg);
+      // message.error(error.response.data.msg);
       window.location.href = loginURL;
     }
     return Promise.reject(err.response);

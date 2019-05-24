@@ -1,5 +1,4 @@
-// 捕获错误并上传
-import Vue from 'vue';
+import React, { Component } from 'react';
 import request from './utils/request';
 
 const sendError = err => {
@@ -7,27 +6,29 @@ const sendError = err => {
     console.log(res.data);
   });
 };
-Vue.config.errorHandler = (err, vm, info) => {
-  console.log(err, info);
-  sendError(err);
-};
 
-window.onerror = function (errorMessage, scriptURI, lineNo, columnNo, error) {
-  console.log('errorMessage: ' + errorMessage); // 异常信息
-  console.log('scriptURI: ' + scriptURI); // 异常文件路径
-  console.log('lineNo: ' + lineNo); // 异常行号
-  console.log('columnNo: ' + columnNo); // 异常列号
-  console.log('error: ' + error); // 异常堆栈信息
+class ErrorBoundary extends Component {
+  constructor (props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError () {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+  componentDidCatch (error, info) {
+    // You can also log the error to an error reporting service
+    sendError(error);
+  }
 
-  // 构建错误对象
-  let errorObj = {
-    errorMessage: errorMessage || null,
-    scriptURI: scriptURI || null,
-    lineNo: lineNo || null,
-    columnNo: columnNo || null,
-    stack: error && error.stack ? error.stack : null
-  };
-  sendError(errorObj);
-};
+  render () {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Something went wrong.</h1>;
+    }
 
-// console.log(a);
+    return this.props.children;
+  }
+}
+
+export default ErrorBoundary;
