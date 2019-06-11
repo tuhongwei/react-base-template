@@ -4,7 +4,7 @@ import ModuleRouters from './modules';
 import CommonRouters from './common';
 
 const routers = [...ModuleRouters, ...CommonRouters];
-const App = () => (
+const ReactRouter = () => (
   <Router>
     <Suspense fallback={<div>Loading...</div>}>
       <Switch>
@@ -16,4 +16,4 @@ const App = () => (
   </Router>
 );
 
-export default App;
+export default ReactRouter;
