@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Home.css';
 
 const scaleNames = {
   c: 'Celsius',
@@ -17,10 +18,13 @@ class Home extends Component {
     const temperature = this.props.temperature;
     const scale = this.props.scale;
     return (
-      <fieldset>
-        <legend>Enter temperature in {scaleNames[scale]}:</legend>
-        <input value={temperature} onChange={this.handleChange} />
-      </fieldset>
+      <div className='home'>
+        <p>home页</p>
+        <fieldset>
+          <legend>Enter temperature in {scaleNames[scale]}:</legend>
+          <input value={temperature} onChange={this.handleChange} />
+        </fieldset>
+      </div>
     );
   }
 }

@@ -1,0 +1,16 @@
+p {
+  font-size: 0.18rem;
+}
+
+fieldset {
+  font-size: 0;
+}
+
+legend {
+  font-size: 0.16rem;
+}
+
+input {
+  width: 2.2rem;
+  font-size: 0.14rem;
+}

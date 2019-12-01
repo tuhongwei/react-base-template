@@ -4,9 +4,9 @@ import ModuleRouters from './modules';
 import CommonRouters from './common';
 
 const routers = [...ModuleRouters, ...CommonRouters];
-const App = () => (
+const ReactRouter = () => (
   <Router>
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div style={{ fontSize: '0.14rem' }}>Loading...</div>}>
       <Switch>
         {routers.map((route, i) => (
           <Route key={i} path={route.path} component={route.component} />
@@ -16,4 +16,4 @@ const App = () => (
   </Router>
 );
 
-export default App;
+export default ReactRouter;
